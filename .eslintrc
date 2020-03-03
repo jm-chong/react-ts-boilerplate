@@ -1,0 +1,53 @@
+{
+  //https://blog.johnnyreilly.com/2019/07/typescript-and-eslint-meet-fork-ts-checker-webpack-plugin.html
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:react/recommended",
+    "prettier/react",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["@typescript-eslint", "react", "prettier"],
+  "env": {
+    "node": true,
+    "browser": true,
+    "jest": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeature": { "jsx": true }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "prettier/@typescript-eslint"
+      ],
+      "plugins": ["@typescript-eslint"],
+      "parser": "@typescript-eslint/parser"
+    }
+  ],
+  "rules": {
+    "@typescript-eslint/no-var-requires": 0,
+    "prettier/prettier": [
+      "error",
+      {
+        "semi": true,
+        "singleQuote": true,
+        "tabWidth": 2,
+        "trailingComma": "none",
+        "bracketSpacing": true,
+        "arrowParens": "avoid",
+        "parser": "typescript"
+      }
+    ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // Tells eslint-plugin-react to automatically detect the version of React to use
+    }
+  }
+}
